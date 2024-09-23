@@ -9,7 +9,7 @@
     <script defer src="js-files/script.js"></script>
   </head>
 
-  <body>
+  <body class="flex">
     <div class="container">
       <div class="userBtns">
         <button class="log_in">Log In</button>
@@ -21,6 +21,43 @@
       <input type="text" id="taskInput" placeholder="Add a new task" />
       <button onclick="addTask()">Add Task</button>
       <ul id="taskList"></ul>
+    </div>
+    <div class="window log_in-window hide">
+      <div class="closeBtn">X</div>
+      <form action="" method="post" class="flex">
+        <h3 class="head">Log In</h3>
+        <div class="name flex">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="Name" />
+        </div>
+        <div class="last_name flex">
+          <label for="last-name" class="last_name-label">Last Name</label>
+          <input type="text" name="last-name" id="lastName" />
+        </div>
+        <div class="password flex">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+        </div>
+
+        <button type="submit" class="submit">Submit</button>
+      </form>
+    </div>
+    <div class="window sign_up-window hide">
+      <div class="closeBtn">X</div>
+      <form action="" method="post" class="flex">
+        <h3 class="head">Sign Up</h3>
+        <div class="name flex">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="Name" />
+        </div>
+
+        <div class="password flex">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+        </div>
+
+        <button type="submit" class="submit">Submit</button>
+      </form>
     </div>
   </body>
 </html>

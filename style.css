@@ -1,10 +1,16 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  position: relative;
+  height: 100vh;
 }
-
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container {
-  max-width: 600px;
+  width: 600px;
   margin: 50px auto;
   padding: 20px;
   background-color: #fff;
@@ -77,4 +83,44 @@ li {
   background: none;
   border: 1px solid #df29f0;
   color: #000;
+}
+.window {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 39%;
+  height: 22rem;
+  position: relative;
+}
+.closeBtn {
+  position: absolute;
+  right: 10px;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+form {
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5%;
+  gap: 10px;
+  height: 80%;
+}
+label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-right: 3%;
+  width: 50%;
+}
+#Name,
+#lastName,
+#password {
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #df29f0;
+}
+.submit {
+  margin-top: 10%;
 }
