@@ -1,12 +1,16 @@
+"use strict";
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 const logInBtn = document.querySelector(".log_in");
 const signUpBtn = document.querySelector(".sign_up");
 const container = document.querySelector(".container");
-const submit = document.querySelector(".submit");
+const submit = document.querySelectorAll(".submit");
 const logInWindow = document.querySelector(".log_in-window");
 const signUpWindow = document.querySelector(".sign_up-window");
 const closeBtn = document.querySelectorAll(".closeBtn");
+const nameInput = document.getElementById("Name");
+const lastNameInput = document.getElementById("lastName");
+const passwordInput = document.getElementById("password");
 function addTask() {
   const list = document.createElement("li");
   list.textContent = taskInput.value;
@@ -31,6 +35,33 @@ function addTask() {
   // Clear input field
   taskInput.value = "";
 }
+async function json() {
+  // Getting Data
+  const nameEl = nameInput.value;
+  const lastName = lastNameInput.value;
+  const password = passwordInput.value;
+  // Sending data
+  const url = "";
+  const main = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(uploadData),
+  });
+  return { name: nameEl, last_name: lastName, passeord: password };
+}
+function formEn(event) {
+  event.preventDefault();
+
+  // Clear inputs
+  nameInput.textContent = "";
+  lastNameInput.textContent = "";
+  passwordInput.textContent = "";
+}
+submit.forEach((ele) => {
+  ele.addEventListener("click", formEn);
+});
 // Event Lesteners
 logInBtn.addEventListener("click", () => {
   logInWindow.classList.remove("hide");
