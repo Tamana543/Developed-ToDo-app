@@ -81,7 +81,9 @@ li {
 }
 .log_in {
   background: none;
-  border: 1px solid #df29f0;
+  /* border: 1px solid #df29f0; */
+  box-shadow: inset 0px 0px 0px 1px #df29f0;
+
   color: #000;
 }
 .window {
@@ -123,4 +125,15 @@ label {
 }
 .submit {
   margin-top: 10%;
+}
+@media (max-width: 500px) {
+  h1 {
+    margin-top: 13%;
+  }
+  input[type="text"] {
+    width: 60%;
+  }
+  .window {
+    width: 88%;
+  }
 }

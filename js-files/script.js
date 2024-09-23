@@ -28,9 +28,8 @@ function addTask() {
 
   // Append delete button to task item
   list.appendChild(deleteButton);
-
+  taskInput.value ? taskList.appendChild(list) : alert("Fill the input please");
   // Append task item to task list
-  taskList.appendChild(list);
 
   // Clear input field
   taskInput.value = "";
@@ -53,11 +52,11 @@ async function json() {
 }
 function formEn(event) {
   event.preventDefault();
-
+  json();
   // Clear inputs
-  nameInput.textContent = "";
-  lastNameInput.textContent = "";
-  passwordInput.textContent = "";
+  nameInput.value = "";
+  lastNameInput.value = "";
+  passwordInput.value = "";
 }
 submit.forEach((ele) => {
   ele.addEventListener("click", formEn);
