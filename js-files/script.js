@@ -26,12 +26,9 @@ function addTask() {
     list.remove();
   });
 
-  // Append delete button to task item
   list.appendChild(deleteButton);
   taskInput.value ? taskList.appendChild(list) : alert("Fill the input please");
-  // Append task item to task list
 
-  // Clear input field
   taskInput.value = "";
 }
 async function json() {
