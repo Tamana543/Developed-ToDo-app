@@ -37,15 +37,20 @@ async function json() {
   const lastName = lastNameInput.value;
   const password = passwordInput.value;
   // Sending data
+  const data = {
+    name: nameEl,
+    lastName: lastName,
+    password: password,
+  };
   const url = "";
   const main = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(uploadData),
+    body: JSON.stringify(data),
   });
-  return { name: nameEl, last_name: lastName, passeord: password };
+  return { name: data.name, last_name: data.lastName, passeord: data.password };
 }
 function formEn(event) {
   event.preventDefault();
