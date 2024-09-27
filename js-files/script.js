@@ -11,6 +11,7 @@ const closeBtn = document.querySelectorAll(".closeBtn");
 const nameInput = document.getElementById("Name");
 const lastNameInput = document.getElementById("lastName");
 const passwordInput = document.getElementById("password");
+let listEl = [];
 function addTask() {
   const list = document.createElement("li");
   list.textContent = taskInput.value;
@@ -18,7 +19,7 @@ function addTask() {
   list.addEventListener("click", function () {
     list.classList.toggle("completed");
   });
-
+  listEl.push(list.textContent);
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "√";
   deleteButton.classList.add("done");
