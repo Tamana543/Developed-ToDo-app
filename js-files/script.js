@@ -31,19 +31,30 @@ function addTask() {
   taskInput.value ? taskList.appendChild(list) : alert("Fill the input please");
 
   taskInput.value = "";
+  setLocalStorage();
+  getLocalStorage();
+  json();
+}
+function setLocalStorage() {
+  localStorage.setItem("list", JSON.stringify(listEl));
+}
+function getLocalStorage() {
+  const data = JSON.parse(localStorage.getItem("list")) || [];
+  if (!data) return;
 }
 async function json() {
   // Getting Data
-  const nameEl = nameInput.value;
-  const lastName = lastNameInput.value;
-  const password = passwordInput.value;
+  // const nameEl = nameInput.value;
+  // const lastName = lastNameInput.value;
+  // const password = passwordInput.value;
   // Sending data
+  debugger;
   const data = {
-    name: nameEl,
-    lastName: lastName,
-    password: password,
+    list: listEl,
+    // lastName: lastName,
+    // password: password,
   };
-  const url = "";
+  const url = "https://undrdsk0m.pythonanywhere.com/submit";
   const main = await fetch(url, {
     method: "POST",
     headers: {
@@ -51,19 +62,20 @@ async function json() {
     },
     body: JSON.stringify(data),
   });
-  return { name: data.name, last_name: data.lastName, passeord: data.password };
+  // return { name: main.name, last_name: main.lastName, passeord: main.password };
+  return { task: main.list };
 }
-function formEn(event) {
-  event.preventDefault();
-  json();
-  // Clear inputs
-  nameInput.value = "";
-  lastNameInput.value = "";
-  passwordInput.value = "";
-}
-submit.forEach((ele) => {
-  ele.addEventListener("click", formEn);
-});
+// function formEn(event) {
+//   // event.preventDefault();
+//   json();
+//   // Clear inputs
+//   nameInput.value = "";
+//   lastNameInput.value = "";
+//   passwordInput.value = "";
+// }
+// submit.forEach((ele) => {
+//   ele.addEventListener("click", formEn);
+// });
 // Event Lesteners
 logInBtn.addEventListener("click", () => {
   logInWindow.classList.remove("hide");
