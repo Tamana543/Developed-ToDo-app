@@ -43,40 +43,28 @@ function getLocalStorage() {
   if (!data) return;
 }
 async function json() {
-  // Getting Data
-  // const nameEl = nameInput.value;
-  // const lastName = lastNameInput.value;
-  // const password = passwordInput.value;
-  // Sending data
-  debugger;
   const data = {
-    list: listEl,
-    // lastName: lastName,
-    // password: password,
+    name: listEl,
   };
-  const url = "https://undrdsk0m.pythonanywhere.com/submit";
-  const main = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  // return { name: main.name, last_name: main.lastName, passeord: main.password };
-  return { task: main.list };
+  // const url = "";
+  try {
+    const main = await fetch("https://undrdsk0m.pythonanywhere.com/submit/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (!Response.ok) {
+      throw new Error("Network response was not OK");
+    }
+    const result = await main.json();
+    console.log(`Data Sent Successfully `, main);
+  } catch (error) {
+    console.error("Error Sending data", error);
+  }
 }
-// function formEn(event) {
-//   // event.preventDefault();
-//   json();
-//   // Clear inputs
-//   nameInput.value = "";
-//   lastNameInput.value = "";
-//   passwordInput.value = "";
-// }
-// submit.forEach((ele) => {
-//   ele.addEventListener("click", formEn);
-// });
-// Event Lesteners
+
 logInBtn.addEventListener("click", () => {
   logInWindow.classList.remove("hide");
   container.style.display = "none";
