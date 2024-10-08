@@ -66,7 +66,16 @@ async function json() {
   }
 }
 // To hundkle Cookie
-
+function getCookie(name){
+  let cookieValue = null;
+  if(document.cookie && document.cookie !== ''){
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i];
+      
+    }
+  }
+}
 logInBtn.addEventListener("click", () => {
   logInWindow.classList.remove("hide");
   container.style.display = "none";
