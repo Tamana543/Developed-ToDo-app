@@ -44,7 +44,7 @@ function getLocalStorage() {
 }
 async function json() {
   const data = {
-    name: listEl,
+    task: listEl.slice(-1),
   };
   // const url = "";
   try {
@@ -52,6 +52,7 @@ async function json() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken"),
       },
       body: JSON.stringify(data),
     });
@@ -59,11 +60,12 @@ async function json() {
       throw new Error("Network response was not OK");
     }
     const result = await main.json();
-    console.log(`Data Sent Successfully `, main);
+    console.log(`Data Sent Successfully `, result);
   } catch (error) {
     console.error("Error Sending data", error);
   }
 }
+// To hundkle Cookie
 
 logInBtn.addEventListener("click", () => {
   logInWindow.classList.remove("hide");
